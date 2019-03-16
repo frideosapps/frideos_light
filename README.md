@@ -1,6 +1,6 @@
 # frideos_light [![pub package](https://img.shields.io/pub/v/frideos_light.svg)](https://pub.dartlang.org/packages/frideos_light)
 
-Library for state management, timing widgets, animations, effects (blur, transitions) and misc. Based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package;
+Library for state management, timing widgets, animations, effects (blur, transitions) and misc. Based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package.
 
 #### [Helpers for state management](#state-management)
 
@@ -348,38 +348,6 @@ If no [errorChild] widget or no [onError] callback is provided then a [Container
 N.B. The callbacks are executed only if their respective child is not provided.
 
 ## Widgets timing
-
-### TimerObject
-
-An object that embeds a timer and a stopwatch.
-
-#### Usage
-
-```dart
-final timerObject = TimerObject();
-
-startTimer() {
-  timerObject.startTimer();
-}
-
-stopTimer() {
-  timerObject.stopTimer();
-}
-
-getLapTime() {
-  timerObject.getLapTime();
-}
-
-incrementCounter(Timer t) {
-  counter.value += 2.0;
-}
-
-startPeriodic() {
-   var interval = Duration(milliseconds: 1000);
-   timerObject.startPeriodic(interval, incrementCounter);
-}
-
-```
 
 ### StagedObject
 
