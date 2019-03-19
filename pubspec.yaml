@@ -2,7 +2,7 @@ name: frideos_light
 author: Francesco Mineo <frideosapps@gmail.com>
 homepage: https://github.com/frideosapps/frideos_light
 description: Library for state management, timing widgets, animations, effects (blur, transitions) and misc.
-version: 0.4.1
+version: 0.4.2
 
 environment:
   sdk: ">=2.0.0 <3.0.0"
