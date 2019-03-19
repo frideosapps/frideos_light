@@ -63,7 +63,7 @@ class _WavesWidgetState extends State<WavesWidget> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) => ValueBuilder<int>(
-          stream: frame.animation,
+          streamed: frame.animation,
           builder: (context, snapshot) {
             return Stack(
               children: <Widget>[

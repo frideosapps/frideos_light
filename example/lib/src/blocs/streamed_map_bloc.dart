@@ -20,7 +20,7 @@ class StreamedMapBloc extends BlocBase with Validators {
     streamedKey.debugMode();
   }
 
-  final streamedMap = StreamedMap<int, String>(initialData: Map());
+  final streamedMap = StreamedMap<int, String>(initialData: {});
   final streamedText = StreamedTransformed<String, String>();
   final streamedKey = StreamedTransformed<String, int>();
 

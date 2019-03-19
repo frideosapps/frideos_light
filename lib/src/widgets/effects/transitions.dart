@@ -199,7 +199,7 @@ class _LinearTransitionState extends State<LinearTransition> {
   Widget build(BuildContext context) {
     return Container(
       child: ValueBuilder<double>(
-        stream: opacity,
+        streamed: opacity,
         builder: (context, snapshot) {
           return Stack(
             children: <Widget>[

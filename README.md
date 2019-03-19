@@ -1,6 +1,6 @@
 # frideos_light [![pub package](https://img.shields.io/pub/v/frideos_light.svg)](https://pub.dartlang.org/packages/frideos_light)
 
-Library for state management, timing widgets, animations, effects (blur, transitions) and misc. Based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package.
+Library for state management, timing widgets, animations, effects (blur, transitions) and misc. Based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package;
 
 #### [Helpers for state management](#state-management)
 
@@ -40,7 +40,7 @@ Library for state management, timing widgets, animations, effects (blur, transit
 #### [Examples built with this library](#examples)
 
 - Example app
-- Theme changer and persistent theme with SharedPreferences
+- Theme changer starter app
 - Counter app
 - Blood pressure example app
 - Pair game
@@ -48,6 +48,7 @@ Library for state management, timing widgets, animations, effects (blur, transit
 ### Dependencies
 
 - [frideos_core](https://pub.dartlang.org/packages/frideos_core)
+- [RxDart](https://pub.dartlang.org/packages/rxdart)
 
 ## State management
 
@@ -162,7 +163,7 @@ class MaterialPage extends StatelessWidget {
     var theme = AppStateProvider.of<AppState>(context).currentTheme;
 
     return ValueBuilder<MyTheme>(
-        stream: theme,
+        streamed: theme,
         builder: (context, snapshot) {
           return MaterialApp(
               title: "Theme and drawer starter app",
@@ -223,7 +224,7 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ),
                 ValueBuilder<MyTheme>(
-                    stream: appState.currentTheme,
+                    streamed: appState.currentTheme,
                     builder: (context, snapshot) {
                       return DropdownButton<MyTheme>(
                         hint: Text("Status"),
@@ -250,14 +251,15 @@ ValueBuilder extends the [StreamBuilder] widget providing some callbacks to hand
 
 N.B. To use when there is no need to receive a _null value_.
 
-It takes as a `stream` parameter an object implementing the [StreamedObject] interface and triggers the rebuild of the widget whenever the stream emits a new event.
+It takes as a `streamed` parameter an object implementing the [StreamedObject] interface and triggers the rebuild of the widget whenever the stream emits a new event.
 
 #### Usage
 
 ```dart
 ValueBuilder<String>(
-  stream: streamedValue,
+  streamed: streamedValue,
   builder: (context, snasphot) => Text(snasphot.data),
+  initialData: // Data to provide for the initial snapshot
   noDataChild: // Widget to show when the stream has no data
   onNoData: () => // or Callback
   errorChild: // Widget to show on error
@@ -334,6 +336,7 @@ FuturedWidget is a wrapper for the [FutureBuilder] widget. It provides some call
 FuturedWidget<String>(
   future: future,
   builder: (context, snasphot) => Text(snasphot.data),
+  initialData: // Data to provide if the snapshot is null or still not completed
   waitingChild: // Widget to show on waiting
   onWaiting: () => // or Callback
   errorChild: // Widget to show on error
@@ -348,6 +351,38 @@ If no [errorChild] widget or no [onError] callback is provided then a [Container
 N.B. The callbacks are executed only if their respective child is not provided.
 
 ## Widgets timing
+
+### TimerObject
+
+An object that embeds a timer and a stopwatch.
+
+#### Usage
+
+```dart
+final timerObject = TimerObject();
+
+startTimer() {
+  timerObject.startTimer();
+}
+
+stopTimer() {
+  timerObject.stopTimer();
+}
+
+getLapTime() {
+  timerObject.getLapTime();
+}
+
+incrementCounter(Timer t) {
+  counter.value += 2.0;
+}
+
+startPeriodic() {
+   var interval = Duration(milliseconds: 1000);
+   timerObject.startPeriodic(interval, incrementCounter);
+}
+
+```
 
 ### StagedObject
 

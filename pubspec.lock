@@ -52,7 +52,7 @@ packages:
       name: frideos_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1+1"
+    version: "0.4.2"
   matcher:
     dependency: transitive
     description:
@@ -94,7 +94,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.18.1"
+    version: "0.21.0"
   sky_engine:
     dependency: transitive
     description: flutter

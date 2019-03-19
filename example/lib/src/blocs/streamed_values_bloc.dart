@@ -1,5 +1,7 @@
 import 'package:frideos_core/frideos_core.dart';
 
+import 'package:rxdart/rxdart.dart';
+
 import '../blocs/bloc.dart';
 
 class Counter {
