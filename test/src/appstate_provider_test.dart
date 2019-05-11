@@ -30,9 +30,9 @@ class AppState extends AppStateModel {
 }
 
 class App extends StatelessWidget {
-  final AppState appState;
+  const App({@required this.appState});
 
-  App({@required this.appState});
+  final AppState appState;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,8 @@ class MaterialPage extends StatelessWidget {
     final model = AppStateProvider.of<AppState>(context).model;
 
     return ValueBuilder<Model>(
-        streamed: model,
-        builder: (context, snapshot) {
-          return MaterialApp(
+      streamed: model,
+      builder: (context, snapshot) => MaterialApp(
             home: Container(
               child: Column(
                 children: <Widget>[
@@ -60,8 +59,8 @@ class MaterialPage extends StatelessWidget {
                 ],
               ),
             ),
-          );
-        });
+          ),
+    );
   }
 }
 

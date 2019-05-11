@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'extended_asyncwidgets.dart';
 import '../staged_object/stage_model.dart';
 import '../staged_object/staged_object.dart';
-
-import 'extended_asyncwidgets.dart';
 
 ///
 ///

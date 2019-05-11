@@ -71,9 +71,8 @@ class _ScrollingTextState extends State<ScrollingText> {
       child: StreamedWidget<String>(
         initialData: '',
         stream: textStream.outStream,
-        builder: (context, snapshot) {
-          return Text(snapshot.data, style: widget.style);
-        },
+        builder: (context, snapshot) =>
+            Text(snapshot.data, style: widget.style),
         noDataChild: const Text('NO DATA'),
       ),
     );

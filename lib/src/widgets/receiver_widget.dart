@@ -12,7 +12,7 @@ import 'extended_asyncwidgets.dart';
 ///
 ///
 class ReceiverWidget extends StatelessWidget {
-  const ReceiverWidget({Key key, @required this.stream})
+  const ReceiverWidget({@required this.stream, Key key})
       : assert(stream != null, 'The strean argument is null.'),
         super(key: key);
 

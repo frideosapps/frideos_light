@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.11"
+  cupertino_icons:
+    dependency: "direct main"
+    description:
+      name: cupertino_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -40,12 +47,19 @@ packages:
     source: sdk
     version: "0.0.0"
   frideos_core:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: frideos_core
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.4"
+  frideos_light:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.4.3"
   matcher:
     dependency: transitive
     description:
@@ -82,7 +96,7 @@ packages:
     source: hosted
     version: "2.0.2"
   rxdart:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: rxdart
       url: "https://pub.dartlang.org"

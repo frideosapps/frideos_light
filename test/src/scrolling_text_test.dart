@@ -7,14 +7,14 @@ void main() {
   testWidgets('StreamedWidget NoDataChild', (WidgetTester tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
-          body: ScrollingText(
+          body: const ScrollingText(
         text: 'scrolling',
         scrollingDuration: 1000,
       )),
     ));
 
     expect(find.text('scrolling'), findsNothing);
-    await tester.pump(new Duration(milliseconds: 1500));
+    await tester.pump(Duration(milliseconds: 1500));
     expect(find.text('scrolling'), findsOneWidget);
   });
 }

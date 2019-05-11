@@ -15,10 +15,8 @@ void main() {
       home: Scaffold(
         body: StreamedWidget(
           stream: streamedValue.outStream,
-          builder: (context, snapshot) {
-            return snapshot.data;
-          },
-          noDataChild: Text('NoData'),
+          builder: (context, snapshot) => snapshot.data,
+          noDataChild: const Text('NoData'),
         ),
       ),
     ));
@@ -26,7 +24,7 @@ void main() {
     expect(find.text('testwidget'), findsNothing);
     expect(find.text('NoData'), findsOneWidget);
 
-    streamedValue.value = Text('testwidget');
+    streamedValue.value = const Text('testwidget');
 
     await tester.pumpAndSettle();
 
@@ -44,12 +42,10 @@ void main() {
       home: Scaffold(
         body: StreamedWidget(
           stream: streamedValue.outStream,
-          builder: (context, snapshot) {
-            return snapshot.data;
-          },
+          builder: (context, snapshot) => snapshot.data,
           onNoData: () {
             str = 'callback';
-            return Text('NoData');
+            return const Text('NoData');
           },
         ),
       ),
@@ -60,7 +56,7 @@ void main() {
     expect(str, 'callback');
     expect(find.text('NoData'), findsOneWidget);
 
-    streamedValue.value = Text('testwidget');
+    streamedValue.value = const Text('testwidget');
 
     await tester.pumpAndSettle();
 
@@ -77,10 +73,9 @@ void main() {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: ValueBuilder<String>(
-            streamed: streamedValue,
-            builder: (context, snapshot) {
-              return Text(snapshot.data);
-            }),
+          streamed: streamedValue,
+          builder: (context, snapshot) => Text(snapshot.data),
+        ),
       ),
     ));
 

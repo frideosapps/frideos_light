@@ -218,6 +218,7 @@ class StagedObject implements StreamedObject {
   Stream<Widget> get outStream => _widgetStream.outStream;
 
   /// Getter
+  @override
   Widget get value => _widgetStream.value;
 
   /// This callback it is not stage specific and it is called
@@ -256,9 +257,7 @@ class StagedObject implements StreamedObject {
     stagesMap.forEach((k, v) => _stages.add(v.time));
   }
 
-  int getMapLength() {
-    return _stagesMap.length;
-  }
+  int getMapLength() => _stagesMap.length;
 
   /// To set the callback non widget specific (this is called
   /// on every stage change and at the beginning if the flag [callbackOnStart]
@@ -271,13 +270,9 @@ class StagedObject implements StreamedObject {
     _onEnd = callback;
   }
 
-  Stage getCurrentStage() {
-    return _stagesMap[stageIndex];
-  }
+  Stage getCurrentStage() => _stagesMap[stageIndex];
 
-  int getStageIndex() {
-    return stageIndex;
-  }
+  int getStageIndex() => stageIndex;
 
   Stage getNextStage() {
     final nextStage = stageIndex + 1;

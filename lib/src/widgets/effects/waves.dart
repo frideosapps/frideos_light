@@ -63,25 +63,24 @@ class _WavesWidgetState extends State<WavesWidget> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) => ValueBuilder<int>(
-          streamed: frame.animation,
-          builder: (context, snapshot) {
-            return Stack(
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  height: widget.height,
-                  child: widget.child,
+            streamed: frame.animation,
+            builder: (context, snapshot) => Stack(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      height: widget.height,
+                      child: widget.child,
+                    ),
+                    CustomPaint(
+                      painter: _WavesPainter(
+                          frame: snapshot.data, color: widget.color),
+                      child: Container(
+                        height: widget.height,
+                      ),
+                    ),
+                  ],
                 ),
-                CustomPaint(
-                  painter:
-                      _WavesPainter(frame: snapshot.data, color: widget.color),
-                  child: Container(
-                    height: widget.height,
-                  ),
-                ),
-              ],
-            );
-          }),
+          ),
     );
   }
 }

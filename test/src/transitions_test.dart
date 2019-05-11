@@ -14,7 +14,7 @@ void main() {
         home: Scaffold(
           body: FadeOutWidget(
             key: key,
-            child: Text('test'),
+            child: const Text('test'),
             duration: 1000,
           ),
         ),
@@ -31,7 +31,7 @@ void main() {
     expect(renderOpacity.opacity, 1.0);
     print(renderOpacity.opacity);
 
-    await tester.pump(new Duration(milliseconds: 500));
+    await tester.pump(Duration(milliseconds: 500));
     renderOpacity = tester
         .renderObject(find.byKey(key))
         .debugDescribeChildren()
@@ -39,7 +39,7 @@ void main() {
         .value;
     print(renderOpacity.opacity);
 
-    await tester.pump(new Duration(milliseconds: 500));
+    await tester.pump(Duration(milliseconds: 500));
     renderOpacity = tester
         .renderObject(find.byKey(key))
         .debugDescribeChildren()
@@ -57,7 +57,7 @@ void main() {
         home: Scaffold(
           body: FadeInWidget(
             key: key,
-            child: Text('test'),
+            child: const Text('test'),
             duration: 1000,
           ),
         ),
@@ -74,7 +74,7 @@ void main() {
     expect(renderOpacity.opacity, 0.0);
     print(renderOpacity.opacity);
 
-    await tester.pump(new Duration(milliseconds: 500));
+    await tester.pump(Duration(milliseconds: 500));
     renderOpacity = tester
         .renderObject(find.byKey(key))
         .debugDescribeChildren()
@@ -82,7 +82,7 @@ void main() {
         .value;
     print(renderOpacity.opacity);
 
-    await tester.pump(new Duration(milliseconds: 500));
+    await tester.pump(Duration(milliseconds: 500));
     renderOpacity = tester
         .renderObject(find.byKey(key))
         .debugDescribeChildren()

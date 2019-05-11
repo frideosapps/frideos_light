@@ -200,20 +200,18 @@ class _LinearTransitionState extends State<LinearTransition> {
     return Container(
       child: ValueBuilder<double>(
         streamed: opacity,
-        builder: (context, snapshot) {
-          return Stack(
-            children: <Widget>[
-              Opacity(
-                opacity: 1.0 - snapshot.data,
-                child: widget.firstWidget,
-              ),
-              Opacity(
-                opacity: snapshot.data,
-                child: widget.secondWidget,
-              ),
-            ],
-          );
-        },
+        builder: (context, snapshot) => Stack(
+              children: <Widget>[
+                Opacity(
+                  opacity: 1.0 - snapshot.data,
+                  child: widget.firstWidget,
+                ),
+                Opacity(
+                  opacity: snapshot.data,
+                  child: widget.secondWidget,
+                ),
+              ],
+            ),
         noDataChild: const Text('NO DATA'),
       ),
     );

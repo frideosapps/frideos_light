@@ -18,7 +18,7 @@ void main() {
 
     expect(find.text('testwidget'), findsNothing);
 
-    streamedValue.value = Text('testwidget');
+    streamedValue.value = const Text('testwidget');
 
     await tester.pumpAndSettle();
 

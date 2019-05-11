@@ -61,7 +61,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((_) {
-      GlobalKey key = widget.key;
+      final GlobalKey key = widget.key;
       final RenderBox box = key.currentContext.findRenderObject();
       width = box.size.width;
       height = box.size.height;

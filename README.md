@@ -1,25 +1,25 @@
 # frideos_light [![pub package](https://img.shields.io/pub/v/frideos_light.svg)](https://pub.dartlang.org/packages/frideos_light)
 
-Library for state management, timing widgets, animations, effects (blur, transitions) and misc. Based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package;
+Library for state management, timing widgets, animations, effects (blur, transitions) and misc. This is a light version of the [frideos](https://pub.dartlang.org/packages/frideos) package, based on the [frideos_core](https://pub.dartlang.org/packages/frideos_core) package.
 
-#### [Helpers for state management](#state-management)
+##### 1. [Helpers for state management](#state-management)
 
 - AppStateModel
 - AppStateProvider
 
-#### [Widgets for streams and futures](#widgets)
+##### 2. [Widgets for streams and futures](#widgets)
 
 - ValueBuilder
 - StreamedWidget
 - ReceiverWidget
 - FuturedWidget
 
-#### [StagedObject and StagedWidget for widgets timing](#widgets-timing)
+##### 3. [StagedObject and StagedWidget for widgets timing](#widgets-timing)
 
 - StagedObject
 - StagedWidget
 
-#### [Widgets for effects](#effects)
+##### 4. [Widgets for effects](#effects)
 
 - LinearTransition
 - CurvedTransition
@@ -31,24 +31,52 @@ Library for state management, timing widgets, animations, effects (blur, transit
 - AnimatedBlurWidget
 - WavesWidget
 
-#### [Misc widgets](#misc)
+##### 5. [Misc widgets](#misc)
 
 - ScrollingText
 - HorizontalSlider
 - VerticalSlider
 
-#### [Examples built with this library](#examples)
-
-- Example app
-- Theme changer starter app
-- Counter app
-- Blood pressure example app
-- Pair game
-
 ### Dependencies
 
 - [frideos_core](https://pub.dartlang.org/packages/frideos_core)
 - [RxDart](https://pub.dartlang.org/packages/rxdart)
+
+
+### Examples built with this library:
+
+- [Quiz game](https://github.com/frideosapps/trivia_example): a simple trivia game built with Flutter and this package. You can read an article about this example here: https://medium.com/flutter-community/flutter-how-to-build-a-quiz-game-596d0f369575
+
+- [Todo App](https://github.com/brianegan/flutter_architecture_samples/tree/master/frideos_library): an implementation of the Todo App of the [Flutter Architecture Samples](https://github.com/brianegan/flutter_architecture_samples) repository using this package.
+
+- [Frideos examples](https://github.com/frideosapps/frideos_examples): an example app to show how to use some features of this library. 
+  - Streamed objects
+  - Streamed collections
+  - TimerObject: a simple stopwatch
+  - StagedObject
+  - StagedWidget
+  - AnimatedObject
+  - Multiple selection and tunnel pattern (to share data between two blocs)
+  - LinearTransition
+  - CurvedTransition
+  - Blur (fixed, in, out, animated)
+  - WavesWidget
+  - Sliders
+  - Products catalog
+  
+- [Dynamic fields validation](https://github.com/frideosapps/dynamic_fields_validation): a Flutter example on how to validate dynamically created fields with the BLoC pattern and this package.
+
+- [Theme changer](https://github.com/frideosapps/theme_changer): a simple starter app with a drawer, app state management, dynamic theme changer and persistent theme using the sharedpreferences.
+
+- [Counter](https://github.com/frideosapps/counter): a simple app using the BLoC pattern showing a counter implemented with this library.
+
+- [Blood pressure](https://github.com/frideosapps/bloodpressure): an example of a medical app built with Flutter for the classification of the arterial blood pressure.
+
+- [Pair game](https://github.com/frideosapps/pair_game): a simple pair game (multiple selections, animations, tunnel pattern).
+  
+  
+---
+      
 
 ## State management
 
@@ -351,38 +379,6 @@ If no [errorChild] widget or no [onError] callback is provided then a [Container
 N.B. The callbacks are executed only if their respective child is not provided.
 
 ## Widgets timing
-
-### TimerObject
-
-An object that embeds a timer and a stopwatch.
-
-#### Usage
-
-```dart
-final timerObject = TimerObject();
-
-startTimer() {
-  timerObject.startTimer();
-}
-
-stopTimer() {
-  timerObject.stopTimer();
-}
-
-getLapTime() {
-  timerObject.getLapTime();
-}
-
-incrementCounter(Timer t) {
-  counter.value += 2.0;
-}
-
-startPeriodic() {
-   var interval = Duration(milliseconds: 1000);
-   timerObject.startPeriodic(interval, incrementCounter);
-}
-
-```
 
 ### StagedObject
 
@@ -765,38 +761,3 @@ VerticalSlider(
   },
 )
 ```
-
-## Examples
-
-### 1. [General](https://github.com/frideosapps/frideos/tree/master/example)
-
-An example app to show how to use this library.
-
-- Streamed objects
-- Streamed collections
-- TimerObject: a simple stopwatch
-- StagedObject
-- StagedWidget
-- AnimatedObject
-- Multiple selection and tunnel pattern (to share data between two blocs)
-- LinearTransition
-- CurvedTransition
-- Blur (fixed, in, out, animated)
-- WavesWidget
-- Sliders
-
-### 2. [Theme changer](https://github.com/frideosapps/theme_changer)
-
-A simple starter app with a drawer, app state management, dynamic theme changer and persistent theme using the sharedpreferences.
-
-### 3. [Counter](https://github.com/frideosapps/counter)
-
-A simple app using the BLoC pattern showing a counter implemented with this library.
-
-### 4. [Blood pressure](https://github.com/frideosapps/bloodpressure)
-
-An example of a medical app built with Flutter for the classification of the arterial blood pressure.
-
-### 5. [Pair game](https://github.com/frideosapps/pair_game)
-
-A simple pair game (multiple selections, animations, tunnel pattern).
