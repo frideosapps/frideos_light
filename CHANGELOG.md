@@ -1,3 +1,7 @@
+## Version 0.5.0 (21-06-19)
+- Updated to frideos_core 0.5.0
+- Updated to RxDart 0.22.0
+
 ## Version 0.4.3 (11-05-19)
 - Updated to frideos_core 0.4.4.
 - Added the parameter `initAppState` (set to `true` by default) to the `AppStateProvider` widget. Setting it to `false` the `init` method of the `AppStateModel` derived class passed to the `appState` parameter won't be called to the `initState` method of the `AppStateProvider`.
